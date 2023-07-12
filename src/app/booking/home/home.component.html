@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row mt-2">
+      <div class="col col-md-4 offset-md-4">
+        <a class="btn btn-primary" routerLink="/booking/create">Booking Now</a>
+      </div>
+  </div>
+  <div class="row mt-12">      
+    <div class="col col-md-12 "> <span style="font-weight: bold;">Total Sheet :</span>    80</div>
+    <div class="col col-md-12 "><span style="font-weight: bold;">Booked  Sheet :</span>  {{bookedsheet}}</div>
+    <div class="col col-md-12 "><span style="font-weight: bold;">Left  Sheet :</span>  {{80-bookedsheet}}</div>    
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">User Name</th>
+        <th scope="col">Sheet Number</th>
+        <!-- <th scope="col">Sheet Type</th> -->
+        <th scope="col">Status</th>          
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of allBooking">
+        <th scope="row">{{ item.id }}</th>
+        <td>{{ item.name }}</td>
+        <td>{{ item.sheet_number }}</td>
+        <!-- <td>{{ item.sheet_type }}</td> -->
+        <td *ngIf="item.status==0">Not Booked</td>
+        <td *ngIf="item.status==1">Booked</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+</div>
